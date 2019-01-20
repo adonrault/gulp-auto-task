@@ -88,3 +88,8 @@ gulp.task('watch', function () {
 gulp.task('default', gulp.series(
     gulp.parallel('watch', 'serve')
 ));
+
+// Tâche production
+gulp.task('prod', gulp.series(
+    gulp.parallel('mincss', 'minjs', 'minimg')
+));
