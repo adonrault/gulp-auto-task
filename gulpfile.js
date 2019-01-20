@@ -83,3 +83,8 @@ gulp.task('watch', function () {
     gulp.watch('*.html', gulp.series('html'));
     gulp.watch('src/sass/*.scss', gulp.series('css'));
 });
+
+// Tâche par défault
+gulp.task('default', gulp.series(
+    gulp.parallel('watch', 'serve')
+));
