@@ -77,3 +77,9 @@ gulp.task('minimg', function () {
         }))
         .pipe(gulp.dest(destination + '/images'));
 });
+
+// Tâche watch
+gulp.task('watch', function () {
+    gulp.watch('*.html', gulp.series('html'));
+    gulp.watch('src/sass/*.scss', gulp.series('css'));
+});
