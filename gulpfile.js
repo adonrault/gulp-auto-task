@@ -21,3 +21,21 @@ gulp.task('serve', function () {
     });
     browserSync.watch('./**/*.*').on('change', browserSync.reload);
 });
+
+// Tâche build = SASS + Compass + Autoprefixer + CSScomb + Beautify
+gulp.task('css', function () {
+    return gulp.src(source + '/*.scss')
+         .pipe(plugins.sass())
+         .pipe(plugins.compass({
+             config_file: './config.rb',
+             css: 'dist/css',
+             sass: 'src/sass'
+         }))
+         .pipe(plugins.csscomb())
+         .pipe(plugins.cssbeautify({indent: '  '}))
+         .pipe(plugins.autoprefixer())
+         .pipe(gulp.dest(destination + '/css'))
+         .pipe(browserSync.reload({
+             stream:true
+         }));
+ });
