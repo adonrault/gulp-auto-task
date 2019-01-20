@@ -57,3 +57,13 @@ gulp.task('mincss', function () {
         }))
         .pipe(gulp.dest(destination + '/css'));
 });
+
+// Minification JS
+gulp.task('minjs', function () {
+    return gulp.src(source + '/js/*.js')
+        .pipe(plugins.uglify())
+        .pipe(plugins.rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest(destination + '/js'));
+});
