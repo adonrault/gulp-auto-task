@@ -39,3 +39,21 @@ gulp.task('css', function () {
              stream:true
          }));
  });
+
+ //  Tâche reload HTML
+gulp.task('html', function () {
+    return gulp.src('*.html')
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
+
+// Minification CSS
+gulp.task('mincss', function () {
+    return gulp.src(destination + '/css/*.css')
+        .pipe(plugins.csso())
+        .pipe(plugins.rename({
+            suffix: 'min'
+        }))
+        .pipe(gulp.dest(destination + '/css'));
+});
