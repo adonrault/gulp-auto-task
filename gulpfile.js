@@ -67,3 +67,13 @@ gulp.task('minjs', function () {
         }))
         .pipe(gulp.dest(destination + '/js'));
 });
+
+// Minification Images
+gulp.task('minimg', function () {
+    return gulp.src(source + '/assets/images/*.*')
+        .pipe(plugins.imagemin())
+        .pipe(plugins.rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest(destination + '/images'));
+});
